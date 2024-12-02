@@ -27,8 +27,6 @@ public class Pool : MonoBehaviour
     [HideInInspector] public List<PoolItem> items;
     private List<GameObject> pooledItems;
 
-    private Animator pooledAnims;
-
     private void Awake() => instance = this;
 
     private void Start()
@@ -53,7 +51,6 @@ public class Pool : MonoBehaviour
             if (!pooledItems[i].activeInHierarchy && pooledItems[i].CompareTag(tag))
             {
                 pooledItems[i].SetActive(true);
-                pooledAnims.enabled = true;
                 return pooledItems[i];
             }
         }
@@ -65,7 +62,6 @@ public class Pool : MonoBehaviour
                 GameObject obj = Instantiate(item.prefab);
                 obj.SetActive(false);
                 pooledItems.Add(obj);
-                pooledAnims = obj.GetComponent<Animator>();
                 return obj;
             }
         }

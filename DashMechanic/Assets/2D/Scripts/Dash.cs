@@ -120,7 +120,7 @@ public class Dash : MonoBehaviour
             {
                 if (disableDashEffect)
                 {
-                    dashCounterInAir = 2;
+                    dashCounterInAir = 3;
                     return;
                 }
 
